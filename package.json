@@ -2,22 +2,31 @@
   "name": "company-admin-dashboard",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "seed-emulator": "node scripts/seed-emulator.js",
+    "advanced-seed-emulator": "node scripts/advanced-seed-emulator.js",
+    "emulator:up": "docker-compose up -d",
+    "emulator:down": "docker-compose down",
+    "emulator:seed": "npm run seed-emulator",
+    "emulator:start": "npm run emulator:up && echo 'Firebase Emulatorを起動しました。シードデータを追加するには npm run emulator:seed を実行してください。'"
   },
   "dependencies": {
+    "@faker-js/faker": "^9.6.0",
+    "firebase": "^11.4.0",
+    "next": "15.2.2",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "next": "15.2.2"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
     "eslint": "^9",
     "eslint-config-next": "15.2.2",
-    "@eslint/eslintrc": "^3"
+    "tailwindcss": "^4"
   }
 }
